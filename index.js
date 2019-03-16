@@ -1,11 +1,7 @@
-const MTProto = require('telegram-mtproto').MTProto
-const { Storage } = require('mtproto-storage-fs')
+const spawn = require('child_process').spawn;
+const pythonProcess = spawn('python3', ['./python_telethon/main.py'])
 
-const firstInstance = MTProto({
-  app: {
-    storage: new Storage('storage.json'),
-  }
+pythonProcess.stdout.on('data', (data) => {
+  console.log(data.toString())
 })
-
-console.log(firstInstance)
 
