@@ -1,0 +1,19 @@
+{
+  "name": "telegramapi",
+  "version": "1.0.0",
+  "description": "### Software requirements:",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgodgers/telegramapi.git"
+  },
+  "author": "cgodgers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgodgers/telegramapi/issues"
+  },
+  "homepage": "https://github.com/cgodgers/telegramapi#readme"
+}
