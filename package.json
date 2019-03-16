@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cgodgers/telegramapi/issues"
   },
-  "homepage": "https://github.com/cgodgers/telegramapi#readme"
+  "homepage": "https://github.com/cgodgers/telegramapi#readme",
+  "dependencies": {
+    "cross-spawn": "^6.0.5"
+  }
 }
