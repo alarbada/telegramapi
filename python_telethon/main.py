@@ -1,33 +1,21 @@
-from telethon import TelegramClient, sync
+from telethon import TelegramClient, sync, events
 from telethon.tl.types import Channel
 from telethon.tl.functions.messages import GetHistoryRequest
+from telethon.events.newmessage import NewMessage
 
-api_id = int('your api id')
-api_hash = 'your api hash'
-phone = 'your phone code'
-password = 'your Telegram password (if account does require it)'
+api_id = #
+api_hash = #
+phone = #
+password = #
 
 client = TelegramClient('session_cache', api_id, api_hash)
 
-with client:
-  myself = client.start(phone=phone, password=password)
+@client.on(events.NewMessage)
+async def my_event_handler(event):
+  print(event.raw_text)
 
-  posts = [] 
+myself = client.start(phone=phone, password=password)
 
-  for dialog in client.get_dialogs():
-    if dialog.is_channel:
-      posts.append(client(GetHistoryRequest(
-        peer=client.get_entity(dialog.name),
-        limit=100,
-        offset_date=None,
-        offset_id=0,
-        max_id=0,
-        min_id=0,
-        add_offset=0,
-        hash=0
-      )))
-    
-  for post in posts:
-    for msg in post.messages:
-      print(msg.message)
+client.add_event_handler(my_event_handler) 
 
+client.run_until_disconnected()
